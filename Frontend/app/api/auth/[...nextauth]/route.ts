@@ -27,6 +27,9 @@ const authOptions: NextAuthOptions = {
           login: profile.login,
         }
       },
+      httpOptions: {
+        timeout: 10000,
+      },
     },
   ],
   callbacks: {
