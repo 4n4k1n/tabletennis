@@ -1,0 +1,44 @@
+services:
+  frontend:
+    build: ./Frontend/
+    container_name: tabletennis-frontend
+    networks:
+      - tabletennis-network
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+
+  backend:
+    build: ./Backend/
+    container_name: tabletennis-backend
+    networks:
+      - tabletennis-network
+    ports:
+      - "8081:8081"
+    volumes:
+      - tabletennis_db:/root/
+    env_file:
+      - .env
+
+  nginx:
+    build: ./Nginx/
+    container_name: tabletennis-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/lib/letsencrypt:/var/lib/letsencrypt:ro
+    networks:
+      - tabletennis-network
+    depends_on:
+      - frontend
+      - backend
+
+networks:
+  tabletennis-network:
+    driver: bridge
+
+volumes:
+  tabletennis_db:

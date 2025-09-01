@@ -1,0 +1,29 @@
+services:
+  frontend:
+    build: ./Frontend/
+    container_name: tabletennis-frontend-local
+    networks:
+      - tabletennis-network
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+
+  backend:
+    build: ./Backend/
+    container_name: tabletennis-backend-local
+    networks:
+      - tabletennis-network
+    ports:
+      - "8081:8081"
+    volumes:
+      - tabletennis_db_local:/root/
+    env_file:
+      - .env.local
+
+networks:
+  tabletennis-network:
+    driver: bridge
+
+volumes:
+  tabletennis_db_local:
