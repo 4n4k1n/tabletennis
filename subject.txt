@@ -1,0 +1,27 @@
+Show the live page to the Council (BOCAL Theo)
+🎯 Objective
+Develop a web app or mobile app exclusively for 42 Heilbronn students that lets them:
+• Log in using their Intra account
+• Upload match results for either:
+    ◦ Table Soccer
+    ◦ Table Football
+• Require the opposing player to confirm the match for it to be validated.
+• Maintain and display an ELO-based leaderboard for each sport.
+🛠️ Core Features
+• 🔐 Intra Auth Integration
+
+Only verified 42 Heilbronn students can log in and participate.
+• 📝 Match Submission System
+    ◦ User A uploads the match result
+    ◦ User B receives a notification or prompt to confirm or deny
+    ◦ Only confirmed matches impact the ELO
+• 📊 ELO Ranking System
+    ◦ Each player has two separate rankings: one for Table Soccer, one for Table Football
+    ◦ Rankings should be public and update dynamically with each confirmed match
+• 🏆 Leaderboard Page
+
+A live view of who’s on top… and who’s next in line to be dethroned.
+🧾 Bonus Features (Optional, but glorious)
+• Add match history logs for players
+• Show win streaks, most played rivals, or “win by pie-eating contest” jokes
+• Add reactions/comments on match outcomes
